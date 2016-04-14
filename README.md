@@ -1,0 +1,2 @@
+# StartupTrends
+Django Project
