@@ -1,2 +1,6 @@
 # StartupTrends
-Django Project
+Grab Startuplist
+
+Grab Startup data with builtwith
+
+Organize
