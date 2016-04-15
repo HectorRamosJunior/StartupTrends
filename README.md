@@ -1,6 +1,5 @@
 # StartupTrends
-Grab Startuplist
+Project idea is to procedurally generate graphs on startup technology stacks with a webapp. Still in progress.
 
-Grab Startup data with builtwith
+Scraping of http://yclist.com/ done using BeautifulSoup. Next step is to update the database with the technology stacks for each company.
 
-Organize

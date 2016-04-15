@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <table>
+            {% for startup in startups %}
+                <tr>
+                    <td>{{ startup.name }}</td>
+                    {% if startup.url %}
+                        <td>
+                            <a href="{{ startup.url }}">{{ startup.url }}</a>
+                        </td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
+                    <td>{{ startup.yc_class }}</td>
+                    <td>{{ startup.status }}</td>
+                    <td>{{ startup.description }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
+
+<a href="/create/">Create Startup List</a>
