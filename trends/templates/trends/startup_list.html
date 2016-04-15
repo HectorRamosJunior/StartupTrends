@@ -3,7 +3,16 @@
         <meta charset="utf-8">
     </head>
     <body>
+        <a href="/create/">Create Startup List</a>
         <table>
+            <thead>
+                <th>Name</th>
+                <th>URL</th>
+                <th>Class</th>
+                <th>Status</th>
+                <th>Description</th>
+            </thead>
+            <tbody>
             {% for startup in startups %}
                 <tr>
                     <td>{{ startup.name }}</td>
@@ -19,8 +28,8 @@
                     <td>{{ startup.description }}</td>
                 </tr>
             {% endfor %}
+            </tbody>
         </table>
     </body>
 </html>
 
-<a href="/create/">Create Startup List</a>
