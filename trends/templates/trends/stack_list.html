@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <a href="/">Index</a>
+        <table>
+            <thead>
+                <th>Service Name</th>
+                <th>Service Type</th>
+                <th>Startups that use it</th>
+            </thead>
+            <tbody>
+            {% for service in services %}
+                <tr>
+                    <td>{{ service.name }}</td>
+                    <td>{{ service.service_type }}</td>
+                    <td>{% for startup in service.startups %}
+                        {{startup}}
+                        {% endfor %}    
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

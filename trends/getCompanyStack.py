@@ -56,9 +56,3 @@ def get_company_stack(company_name):
         stack_layer_dict[layer_title] = layer_dict
 
     return stack_layer_dict
-
-test_dict = get_company_stack("Credit Karma")
-
-for layer,layer_dict in test_dict.iteritems():
-    for k,v in layer_dict.iteritems():
-        print k,v

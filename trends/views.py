@@ -9,6 +9,10 @@ def startup_list(request):
     startups = Startup.objects.all()
     return render(request, 'trends/startup_list.html', {'startups': startups})
 
+def stack_list(request):
+    services = Service.objects.all()
+    return render(request, 'trends/stack_list.html', {'services': services})
+
 # Scrapes the yclist site for the startups, redirects back to index when done
 def get_startups(request):
     Startup.objects.all().delete()
@@ -53,4 +57,6 @@ def get_stacks(request):
 
                     service.save()
 
-    return redirect('startup_list')
+    services = Service.objects.all()
+    return redirect('stack_list')
+
