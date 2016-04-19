@@ -29,7 +29,8 @@ def get_startups(request):
 
     return redirect('startup_list')
 
-# Scrapes the stackshare site for the stacks to each startup, then redirects to index
+# Scrapes the stackshare site for the stacks to each startup
+# Then redirects back to the index when done
 def get_stacks(request):
     startups = Startup.objects.all()
 
@@ -50,8 +51,6 @@ def get_stacks(request):
                     service.service_type = key
                     service.startups.add(startup)
 
-                    service.save()        
-
-        startup.save()
+                    service.save()
 
     return redirect('startup_list')

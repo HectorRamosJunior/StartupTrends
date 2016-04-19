@@ -31,9 +31,12 @@ def get_company_stack(company_name):
 
 
     stack_layer_dict = {}
-    # Scrapes each stack layer for the services within, adds the layer_dict to the stack_layer_dict
+    # Scrapes each stack layer for the services within
+    # Adds the layer_dict to the stack_layer_dict
     for layer in layers:
-        layer_title = layer.find("div", {"class": "stack-layer-title stack-layer-title-tag"}).text 
+        layer_title = layer.find("div", 
+                                {"class": "stack-layer-title stack-layer-title-tag"}
+                                ).text 
         layer_dict = {}
         
         # Grab all the services in the current layer
