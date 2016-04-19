@@ -12,3 +12,11 @@ class Startup(models.Model):
 
     def __str__(self):
         return self.name
+
+class Service(models.Model):
+    name = models.CharField(max_length=200)
+    service_type = models.CharField(max_length=200)
+    startups = models.ManyToManyField(Startup)
+
+    def __str__(self):
+        return self.name
