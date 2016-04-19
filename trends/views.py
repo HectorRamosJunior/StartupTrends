@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Startup, Service
+from .models import Startup, Service, Technology
 from .getCompanyList import get_company_list
 from .getCompanyStack import get_company_stack
 
@@ -47,16 +47,18 @@ def get_stacks(request):
             continue
 
         for layer, layer_dict in stack_layer_dict.iteritems():
-            for key, array in layer_dict.iteritems():
-                for element in array:
-                    (service, exists) = Service.objects.get_or_create(name=element)
+            for service_name, techology_array in layer_dict.iteritems():
+                (service, exists) = Service.objects.get_or_create(name=service_name)
 
-                    service.name = element
-                    service.service_type = key
-                    service.startups.add(startup)
+                for technology in technology_array:
+                    (technology, exists) = Technology.objects.get_or_create(name=service_name)
 
-                    service.save()
+                    if not exists:
+                        technology.name = element
+                        service.technologies.add(technology)
 
-    services = Service.objects.all()
+                    technology.startups.add(startup)
+                    technology.save()
+
     return redirect('stack_list')
 
