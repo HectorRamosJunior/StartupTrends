@@ -16,7 +16,7 @@
                     <td>{{ service.name }}</td>
                     <td>{{ service.service_type }}</td>
                     <td>{% for startup in service.startups.all %}
-                        {{startup}}
+                        {{ startup }}
                         {% endfor %}    
                     </td>
                 </tr>
