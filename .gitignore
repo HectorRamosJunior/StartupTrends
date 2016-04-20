@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+trends/migrations/
 
 db.sqlite3
 .DS_Store
