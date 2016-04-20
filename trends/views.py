@@ -49,16 +49,18 @@ def get_stacks(request):
         for layer, layer_dict in stack_layer_dict.iteritems():
             for service_name, techology_array in layer_dict.iteritems():
                 (service, exists) = Service.objects.get_or_create(name=service_name)
+                service.name = service_name
+                service.save()
 
-                for technology in technology_array:
-                    (technology, exists) = Technology.objects.get_or_create(name=service_name)
+                for technology_name in technology_array:
+                    (technology, exists2) = Technology.objects.get_or_create(name=technology_name)
 
-                    if not exists:
-                        technology.name = element
-                        service.technologies.add(technology)
-
+                    technology.name = technology_name
                     technology.startups.add(startup)
                     technology.save()
 
-    return redirect('stack_list')
+                    service.technologies.add(technology)
+                    service.save()
 
+
+    return redirect('stack_list')

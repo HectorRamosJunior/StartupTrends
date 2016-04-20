@@ -19,5 +19,5 @@ class Technology(models.Model):
 
 class Service(models.Model):
     name = models.CharField(max_length=200)
-    technologies = models.ForeignKey(Technology)
+    technologies = models.ManyToManyField(Technology)
 
